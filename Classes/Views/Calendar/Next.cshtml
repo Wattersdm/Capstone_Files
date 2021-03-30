@@ -1,0 +1,37 @@
+﻿@using PlanIt_UIWork.Classes;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Web;
+@using System.Data.SqlClient;
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/Site.css" type="text/css" />
+
+    @*@Styles.Render("~/Content/Site.css")*@
+</head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="~/Scripts/calendar.js"></script>
+<h2>Calendar!</h2>
+
+@{
+    var acc = new account();
+    Calendar cal = (Calendar)HttpContext.Current.Session["calendar"];
+    if (!acc.UserIsLoggedIn()) { Response.Redirect("Login.aspx"); }
+
+    if (cal.GetMonthNum() < 12)
+    {
+        cal.SetMonth(cal.GetMonthNum() + 1);
+        Response.Redirect("../../Index.cshtml");
+    }
+    else
+    {
+        // increment year logic
+        cal.SetMonth(1);
+        cal.SetCalYear(cal.GetcalYear() + 1);
+        Response.Redirect("../../Index.cshtml");
+
+    };
+}

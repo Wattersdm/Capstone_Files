@@ -1,0 +1,95 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/Site.css" type="text/css" />
+
+    @*<meta name="viewport" content="width=device-width" />
+        @Scripts.Render("~/bundles/jquery")
+        <script src="https://kit.fontawesome.com/a75ff89abd.js" crossorigin="anonymous"></script>
+        @Styles.Render("~/Content/Site.css")*@
+</head>
+<body>
+    <div class="app-layout">
+        <header class="header">
+            <div>
+                <h1>Plan It</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="~/Index.cshtml">Calendar</a>
+                    </li>
+                    <li>
+                        <a href="~/DiscussionBoard.aspx">Discussion Board</a>
+                    </li>
+                    <li>
+                        <a href="~/ViewProfile.aspx">My Profile</a>
+                    </li>
+                    @*<NavLink toLocation="/calendar" currentLocation={location.pathname} text="Calendar" />
+        <NavLink toLocation="/discussion-boards"
+                 currentLocation={location.pathname}
+                 text="Discussion Boards" />
+        <NavLink toLocation="/my-profile"
+                 currentLocation={location.pathname}
+                 text="My Profile" />
+        <NavLink toLocation="/child-profiles"
+                 currentLocation={location.pathname}
+                 text="Child Profiles" />*@
+                </ul>
+            </nav>
+        </header>
+        <main>@RenderBody()</main>
+    </div>
+</body>
+</html>
+
+
+
+@*import * as React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+
+const NavLink: React.SFC<{ text: string;
+                           toLocation: string;
+                           currentLocation: string;
+                           }>
+    = ({ currentLocation, toLocation, text }) => {
+    const isActive = toLocation === currentLocation;
+    return (
+    <li class={isActive ? 'active' : '' }>
+        <Link to={toLocation}>{text}</Link>
+    </li>
+    );
+    };
+
+    export const Layout: React.SFC = ({ children }) => {
+    const location = useLocation();
+
+    return (
+    <div class="app-layout">
+        <header class="header">
+            <div>
+                <h1>Plan It</h1>
+            </div>
+            <nav>
+                <ul>
+                    <NavLink toLocation="/calendar" currentLocation={location.pathname} text="Calendar" />
+                    <NavLink toLocation="/discussion-boards"
+                             currentLocation={location.pathname}
+                             text="Discussion Boards" />
+                    <NavLink toLocation="/my-profile"
+                             currentLocation={location.pathname}
+                             text="My Profile" />
+                    <NavLink toLocation="/child-profiles"
+                             currentLocation={location.pathname}
+                             text="Child Profiles" />
+                </ul>
+            </nav>
+        </header>
+        <main>{children}</main>
+    </div>
+    );
+    };
+
+    export default Layout;
+*@
